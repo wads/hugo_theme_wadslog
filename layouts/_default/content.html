@@ -1,0 +1,16 @@
+<div id="title"
+     {{ if eq true (isset .Params "eyecatch") }}
+     class="with-eyecatch"
+     {{ end }}
+>
+  <h1>{{ .Title }}</h1>
+  <p class="meta">{{ .Date.Format "Jan 2, 2006" }} </p>
+</div>
+
+<article class="single">
+{{- if (.Param "toc" | default true) -}}
+  {{- partial "content_with_toc.html" . -}}
+{{- else -}}
+  {{- .Content -}}
+{{- end -}}
+</article>

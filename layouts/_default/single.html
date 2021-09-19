@@ -1,0 +1,42 @@
+{{ define "title" }}{{ .Title }} - {{ end }}
+
+{{ define "meta" }}
+{{ partial "single_meta.html" . }}
+{{ partial "single_json_ld.html" . }}
+{{ end }}
+
+{{ define "main" }}
+<section
+    {{ if isset .Params "eyecatch" }}
+    id="main-img"
+    style="background-image: url('/img/{{ .Params.eyecatch }}');"
+    {{ end }}
+></section>
+<section id="container">
+  <div id="left">
+  </div>
+  <div id="content"
+       {{ if eq true (isset .Params "eyecatch") }}
+       class="with-eyecatch"
+       {{ end }}
+  >
+    {{ .Render "content" }}
+    {{ if (.Param "disqus" | default true) }}
+    <div class="disqus">
+      {{ template "_internal/disqus.html" . }}
+    </div>
+    {{ end }}
+  </div>
+  <aside id="right">
+    {{ if (.Param "toc" | default true) }}
+    <div id="side-toc"
+         {{ if eq true (isset .Params "eyecatch") }}
+         class="with-eyecatch"
+         {{ end }}
+    >
+      {{ .TableOfContents }}
+    </div>
+    {{ end }}
+  </aside>
+</section>
+{{ end }}

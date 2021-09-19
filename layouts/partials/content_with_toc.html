@@ -1,0 +1,9 @@
+{{- $header := (findRE "<h[1-6].*?>(?:.|\n)*?</h[1-3]>" .Content) -}}
+{{- $firstH := index $header 0 -}}
+
+{{- if ne $firstH nil -}}
+{{- $newH := printf `<div id="inner-toc"><p class="inner-toc-title">目次</p>%s</div>%s` .TableOfContents $firstH -}}
+{{- replace .Content $firstH $newH | safeHTML -}}
+{{- else -}}
+{{- .Content -}}
+{{- end -}}
