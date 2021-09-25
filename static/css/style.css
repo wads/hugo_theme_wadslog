@@ -37,6 +37,23 @@ header .spacer {
     display: none;
 }
 
+header .nav-menu {
+  margin-left: 2rem;
+}
+
+header .nav-menu ul {
+  display: flex;
+  justify-content: left;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header .nav-menu li {
+  padding: 0 0.75rem;
+  text-align: center;
+}
+
 header .menu-btn {
   align-items: center;
   display: flex;
@@ -85,6 +102,7 @@ header .menu-content ul {
 header .menu-content ul li {
   border-bottom: solid 1px #ffffff;
   list-style: none;
+  margin-bottom: 5px;
 }
 
 header .menu-content ul li a {
@@ -94,7 +112,7 @@ header .menu-content ul li a {
   box-sizing: border-box;
   color:#ffffff;
   text-decoration: none;
-  padding: 9px 15px 10px 0;
+  padding: 9px 15px 5px 0;
   position: relative;
 }
 
@@ -107,7 +125,7 @@ header .menu-content ul li a::before {
   transform: rotate(45deg);
   position: absolute;
   right: 11px;
-  top: 16px;
+  top: 21px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -393,6 +411,10 @@ footer {
     padding: 0;
   }
 
+  header .nav-menu {
+    display: none;
+  }
+
   header .hamburger-menu,
   header .spacer {
     display: flex;
@@ -428,10 +450,6 @@ footer {
   }
 
   #inner-toc {
-    display: block;
-  }
-
-  .hamburger-menu {
     display: block;
   }
 
